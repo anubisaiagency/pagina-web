@@ -20,6 +20,7 @@ export const Header = () => {
 
   const navLinks = [
     { name: 'Servicios', href: '#services' },
+    { name: 'Precios', href: '#pricing' },
     { name: 'Sectores', href: '#sectors' },
     { name: 'Proceso', href: '#process' },
     { name: 'Contacto', href: '#contact' },
@@ -58,10 +59,12 @@ export const Header = () => {
             </a>
           ))}
           <a
-            href="#contact"
+            href="TU_ENLACE_GHL_AQUI"
+            target="_blank"
+            rel="noopener"
             className="px-5 py-2.5 bg-foreground text-background rounded-full text-sm font-medium hover:bg-foreground/90 transition-all hover:scale-105 active:scale-95"
           >
-            Empezar ahora
+            Acceso Clientes
           </a>
         </nav>
 
@@ -90,11 +93,13 @@ export const Header = () => {
               </a>
             ))}
             <a
-              href="#contact"
+              href="TU_ENLACE_GHL_AQUI"
+              target="_blank"
+              rel="noopener"
               className="px-4 py-3 bg-foreground text-background rounded-xl text-center font-medium hover:bg-foreground/90 transition-colors"
               onClick={() => setIsMobileMenuOpen(false)}
             >
-              Empezar ahora
+              Acceso Clientes
             </a>
           </nav>
         </div>

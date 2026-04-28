@@ -1,78 +1,70 @@
-import { ArrowRight, Play } from 'lucide-react';
-import { useSearchParams } from 'react-router-dom';
+import { ArrowRight } from 'lucide-react';
 
 export const Hero = () => {
-  const [searchParams] = useSearchParams();
-  const sector = searchParams.get('sector');
-
-  const getHeadline = () => {
-    if (sector === 'inmobiliaria') return 'IA para Inmobiliarias: Vende casas mientras duermes.';
-    if (sector === 'medico') return 'IA para Clínicas: Cero ausencias, más pacientes.';
-    if (sector === 'ecommerce') return 'IA para E-commerce: Tu tienda vendiendo 24/7.';
-    return (
-      <>
-        Inteligencia Artificial,
-        <br />
-        <span className="text-primary">Simplemente Funciona.</span>
-      </>
-    );
-  };
-
   return (
     <section className="relative min-h-screen flex items-center justify-center pt-20 overflow-hidden">
-      {/* Background Gradient */}
-      <div className="absolute inset-0 -z-10 bg-[radial-gradient(ellipse_at_center,_var(--tw-gradient-stops))] from-blue-50 via-background to-background opacity-50" />
 
+      {/* 1 — Vídeo de fondo */}
+      <video
+        src="/hero.mp4"
+        autoPlay
+        muted
+        loop
+        playsInline
+        className="absolute inset-0 w-full h-full object-cover"
+      />
 
+      {/* 2 — Overlay semitransparente encima del vídeo */}
+      <div className="absolute inset-0 bg-background/78" />
 
-      <div className="container px-6 mx-auto text-center relative z-10">
+      {/* 3 — Viñeta radial: oscurece bordes para fundir con el resto de la página */}
+      <div className="absolute inset-0 bg-[radial-gradient(ellipse_60%_70%_at_50%_50%,transparent,hsl(var(--background)))]" />
+
+      {/* 4 — Contenido: último en el DOM = encima de todo */}
+      <div className="relative container px-6 mx-auto text-center">
         <div className="max-w-4xl mx-auto space-y-8">
-          <div className="inline-flex items-center px-3 py-1 rounded-full border border-border bg-secondary/50 backdrop-blur-sm animate-fade-in opacity-0 [animation-fill-mode:forwards]">
-            <span className="text-xs font-medium text-muted-foreground">
-              Revolucionando empresas en Málaga
+
+          <div className="inline-flex items-center px-3 py-1 rounded-full border border-border bg-background/80 backdrop-blur-sm animate-fade-in opacity-0 [animation-fill-mode:forwards]">
+            <span className="text-xs font-medium text-foreground">
+              Especialistas en E-commerce — Tienda + Portal exclusivo + Agente IA
             </span>
           </div>
 
           <h1 className="text-5xl md:text-7xl lg:text-8xl font-bold tracking-tighter text-balance animate-fade-in-up opacity-0 [animation-delay:200ms] [animation-fill-mode:forwards]">
-            {getHeadline()}
+            Landing Pages que
+            <br />
+            <span className="text-primary">venden de verdad.</span>
           </h1>
 
-          <p className="text-xl md:text-2xl text-muted-foreground max-w-2xl mx-auto text-balance animate-fade-in-up opacity-0 [animation-delay:400ms] [animation-fill-mode:forwards]">
-            Automatizamos tus procesos de negocio con soluciones de IA elegantes y eficientes. Sin complicaciones.
+          <p className="text-xl md:text-2xl font-semibold text-foreground max-w-2xl mx-auto text-balance animate-fade-in-up opacity-0 [animation-delay:400ms] [animation-fill-mode:forwards]" style={{ textShadow: '0 0 20px hsl(var(--background)), 0 0 40px hsl(var(--background))' }}>
+            Construimos tiendas de alto rendimiento con tu propio portal de control y un agente de IA que trabaja por ti 24/7.
           </p>
 
           <div className="flex flex-col items-center gap-8 animate-fade-in-up opacity-0 [animation-delay:600ms] [animation-fill-mode:forwards]">
             <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
               <a
-                href="#contact"
+                href="#pricing"
                 className="group px-8 py-4 bg-foreground text-background rounded-full text-lg font-medium hover:bg-foreground/90 transition-all flex items-center gap-2 hover:scale-105 active:scale-95"
               >
-                Consultoría Gratuita
+                Ver planes y precios
                 <ArrowRight size={20} className="group-hover:translate-x-1 transition-transform" />
               </a>
               <a
-                href="#services"
-                className="px-8 py-4 bg-secondary text-secondary-foreground rounded-full text-lg font-medium hover:bg-secondary/80 transition-all hover:scale-105 active:scale-95"
+                href="#contact"
+                className="px-8 py-4 bg-secondary/80 backdrop-blur-sm text-secondary-foreground rounded-full text-lg font-medium hover:bg-secondary transition-all hover:scale-105 active:scale-95"
               >
-                Ver Servicios
+                Solicita una demo gratuita
               </a>
             </div>
 
             {/* Social Proof Strip */}
-            <div className="flex flex-wrap justify-center gap-8 opacity-60 grayscale hover:grayscale-0 transition-all duration-500">
-              {/* Placeholders for client logos */}
-              {['TechCorp', 'InmoSur', 'ClínicaVital', 'ShopifyStore', 'LegalFirm'].map((client) => (
-                <span key={client} className="text-lg font-bold text-muted-foreground">{client}</span>
+            <div className="flex flex-wrap justify-center gap-8 opacity-80 hover:opacity-100 transition-all duration-500">
+              {['Shopify', 'Meta Ads', 'Google Ads', 'Klaviyo', 'TikTok Ads'].map((tool) => (
+                <span key={tool} className="text-lg font-bold text-foreground/60">{tool}</span>
               ))}
             </div>
           </div>
-        </div>
 
-        {/* Showroom / Video Container */}
-        <div className="mt-20 relative mx-auto max-w-5xl aspect-video rounded-2xl overflow-hidden shadow-2xl animate-fade-in-up opacity-0 [animation-delay:800ms] [animation-fill-mode:forwards] border border-border/50 bg-secondary/20 group">
-          <div className="absolute inset-0 flex items-center justify-center bg-black/5">
-            <img src="/gif_hero.gif" alt="Demo" className="w-full h-full object-cover" />
-          </div>
         </div>
       </div>
     </section>

@@ -1,10 +1,10 @@
-import { Award, Users, TrendingUp, Play } from 'lucide-react';
+import { Award, Users, TrendingUp } from 'lucide-react';
 
 export const About = () => {
   const stats = [
-    { icon: Award, value: '100+', label: 'Proyectos' },
-    { icon: Users, value: '50+', label: 'Clientes' },
-    { icon: TrendingUp, value: '40%', label: 'Crecimiento' },
+    { icon: Award, value: '50+', label: 'Tiendas lanzadas' },
+    { icon: Users, value: '30+', label: 'Clientes activos' },
+    { icon: TrendingUp, value: '+38%', label: 'Conversión media' },
   ];
 
   return (
@@ -12,32 +12,29 @@ export const About = () => {
       <div className="container px-6 mx-auto">
         <div className="max-w-4xl mx-auto text-center mb-20">
           <h2 className="text-4xl md:text-5xl font-semibold tracking-tight mb-8">
-            Anubis AI Agency
+            Quiénes somos
           </h2>
           <p className="text-xl md:text-2xl text-muted-foreground leading-relaxed text-balance mb-12">
-            Somos una agencia boutique de inteligencia artificial en la Costa del Sol.
-            Combinamos expertise técnico con diseño estratégico para transformar negocios.
+            Somos ingenieros web especializados en construir tiendas que convierten.
+            No hacemos webs bonitas — hacemos máquinas de venta.
           </p>
+        </div>
 
-          {/* Founder Video Placeholder */}
-          <div className="relative aspect-video rounded-2xl overflow-hidden bg-background shadow-xl border border-border group cursor-pointer max-w-2xl mx-auto">
-            <div className="absolute inset-0 flex items-center justify-center bg-black/5 group-hover:bg-black/10 transition-colors">
-              <div className="w-16 h-16 bg-white rounded-full flex items-center justify-center shadow-lg group-hover:scale-110 transition-transform">
-                <Play className="w-6 h-6 text-primary ml-1" fill="currentColor" />
-              </div>
-            </div>
-            <div className="absolute bottom-6 left-6 text-left">
-              <p className="text-sm font-medium text-foreground bg-white/90 px-3 py-1 rounded-lg inline-block mb-1">
-                Mensaje del Fundador
+        {/* Founder Card */}
+        <div className="max-w-3xl mx-auto bg-background rounded-3xl p-8 md:p-12 shadow-sm border border-border mb-20">
+          <div className="text-left">
+              <h3 className="text-2xl font-bold mb-1">Aissa Omar</h3>
+              <p className="text-primary font-medium text-sm mb-4">Desarrollador Web & CEO</p>
+              <p className="text-muted-foreground leading-relaxed mb-3">
+                Ingeniero especializado en desarrollo web de alto rendimiento y sistemas de ventas digitales para e-commerce y dropshipping. Su obsesión es una sola métrica: la tasa de conversión.
               </p>
-              <p className="text-xs text-muted-foreground bg-white/90 px-3 py-1 rounded-lg inline-block">
-                Por qué la IA no es magia, es ingeniería.
+              <p className="text-muted-foreground leading-relaxed">
+                Cada proyecto incluye la tienda, un <strong className="text-foreground">portal de control exclusivo</strong> para el cliente y <strong className="text-foreground">agentes de IA</strong> que automatizan la captación, la retención y el soporte — todo desde un único panel.
               </p>
-            </div>
           </div>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-4xl mx-auto mt-20">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-4xl mx-auto">
           {stats.map((stat, index) => {
             return (
               <div key={index} className="text-center p-8 bg-background rounded-3xl shadow-sm">

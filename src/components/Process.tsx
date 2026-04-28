@@ -1,30 +1,30 @@
-import { Search, Target, Rocket, TrendingUp } from 'lucide-react';
+import { Search, Paintbrush, Link, TrendingUp } from 'lucide-react';
 
 export const Process = () => {
   const steps = [
     {
       icon: Search,
       number: '01',
-      title: 'Diagnóstico Profundo',
-      description: 'Auditoría exhaustiva para identificar cuellos de botella reales.',
+      title: 'Estrategia & Análisis',
+      description: 'Estudiamos tu nicho, competencia y buyer persona. Definimos la oferta, el mensaje y la estructura de conversión antes de escribir una sola línea de código.',
     },
     {
-      icon: Target,
+      icon: Paintbrush,
       number: '02',
-      title: 'Arquitectura de Flujos',
-      description: 'Diseño de la infraestructura lógica que sostendrá tu automatización.',
+      title: 'Diseño & Desarrollo Shopify',
+      description: 'Construimos tu landing page en Shopify optimizada para velocidad y conversión: copy persuasivo, UX testada y checkout sin fricciones.',
     },
     {
-      icon: Rocket,
+      icon: Link,
       number: '03',
-      title: 'Despliegue de Agentes',
-      description: 'Implementación de IAs entrenadas específicamente para tu negocio.',
+      title: 'Portal de control & Agente IA',
+      description: 'Activamos tu panel exclusivo con el CRM, las automatizaciones de email/SMS y el agente de IA entrenado con tu marca para atender y convertir 24/7.',
     },
     {
       icon: TrendingUp,
       number: '04',
-      title: 'Escalado Autónomo',
-      description: 'Optimización continua para que el sistema crezca sin tu intervención.',
+      title: 'Optimización Continua',
+      description: 'Monitorizamos métricas clave, ejecutamos tests A/B y ajustamos el funnel cada mes para que tu conversión mejore de forma constante.',
     },
   ];
 
@@ -36,7 +36,7 @@ export const Process = () => {
             El Protocolo Anubis.
           </h2>
           <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
-            Nuestro sistema propietario de 4 fases para la automatización total.
+            4 fases para lanzar una tienda que convierte desde el día 1.
           </p>
         </div>
 
@@ -64,13 +64,13 @@ export const Process = () => {
                 <Search className="w-6 h-6 text-primary" />
               </div>
               <div className="absolute bottom-0 left-1/2 -translate-x-1/2 translate-y-6 bg-background p-3 rounded-full border border-primary/30 shadow-lg shadow-primary/20">
-                <Rocket className="w-6 h-6 text-primary" />
+                <TrendingUp className="w-6 h-6 text-primary" />
               </div>
               <div className="absolute left-0 top-1/2 -translate-x-6 -translate-y-1/2 bg-background p-3 rounded-full border border-primary/30 shadow-lg shadow-primary/20">
-                <Target className="w-6 h-6 text-primary" />
+                <Paintbrush className="w-6 h-6 text-primary" />
               </div>
               <div className="absolute right-0 top-1/2 translate-x-6 -translate-y-1/2 bg-background p-3 rounded-full border border-primary/30 shadow-lg shadow-primary/20">
-                <TrendingUp className="w-6 h-6 text-primary" />
+                <Link className="w-6 h-6 text-primary" />
               </div>
             </div>
 

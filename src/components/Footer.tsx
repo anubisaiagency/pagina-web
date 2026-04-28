@@ -5,15 +5,16 @@ export const Footer = () => {
 
   const links = {
     company: [
-      { label: 'Quiénes Somos', href: '#about' },
       { label: 'Servicios', href: '#services' },
+      { label: 'Precios', href: '#pricing' },
+      { label: 'Sectores', href: '#sectors' },
       { label: 'Proceso', href: '#process' },
       { label: 'Contacto', href: '#contact' },
     ],
     legal: [
-      { label: 'Términos', href: '#' },
-      { label: 'Privacidad', href: '#' },
-      { label: 'Cookies', href: '#' },
+      { label: 'Términos', href: 'https://anubisaiagency.com/terminos' },
+      { label: 'Privacidad', href: 'https://anubisaiagency.com/privacidad' },
+      { label: 'Cookies', href: 'https://anubisaiagency.com/cookies' },
     ],
   };
 
@@ -24,9 +25,9 @@ export const Footer = () => {
           <div className="col-span-1 md:col-span-1">
             <span className="text-xl font-semibold tracking-tight">Anubis AI</span>
             <p className="mt-4 text-sm text-muted-foreground leading-relaxed">
-              Inteligencia Artificial,
+              Tu tienda, tu portal de control
               <br />
-              Simplemente Funciona.
+              y tu agente de IA — todo en uno.
             </p>
           </div>
 
@@ -48,7 +49,7 @@ export const Footer = () => {
             <ul className="space-y-3 text-sm text-muted-foreground">
               {links.legal.map((link) => (
                 <li key={link.label}>
-                  <a href={link.href} className="hover:text-foreground transition-colors">
+                  <a href={link.href} target="_blank" rel="noopener" className="hover:text-foreground transition-colors">
                     {link.label}
                   </a>
                 </li>

@@ -1,89 +1,178 @@
-import { Database, GitBranch, TrendingUp, ArrowRight, Scissors } from 'lucide-react';
+import { Check, ArrowRight } from 'lucide-react';
+
+interface Plan {
+  name: string;
+  setup: string;
+  priceOld?: string;
+  priceNow?: string;
+  priceCustom?: string;
+  period?: string;
+  features: string[];
+  cta: string;
+  ctaHref: string;
+  featured?: boolean;
+  badge?: string;
+  enterprise?: boolean;
+}
+
+const plans: Plan[] = [
+  {
+    name: 'Junior',
+    setup: '150€ setup único',
+    priceOld: '67.99€',
+    priceNow: '37.99€',
+    period: '/mes',
+    features: [
+      'Landing page de producto optimizada',
+      'Agente IA de soporte básico',
+      'Portal de control con métricas esenciales',
+      'Soporte por email',
+    ],
+    cta: 'Empezar ahora',
+    ctaHref: '#contact',
+  },
+  {
+    name: 'Advanced',
+    setup: '250€ setup único',
+    priceOld: '97€',
+    priceNow: '67.99€',
+    period: '/mes',
+    features: [
+      'Landing page premium + páginas de colección',
+      'Agente IA con recuperación de carritos',
+      'Portal de control completo (ventas, leads, campañas)',
+      'Automatizaciones email y SMS',
+      'Seguimiento de conversiones',
+      'Soporte prioritario',
+    ],
+    cta: 'Empezar ahora',
+    ctaHref: '#contact',
+    featured: true,
+    badge: 'Best Seller',
+  },
+  {
+    name: 'Titan',
+    setup: '500€ setup único',
+    priceNow: '147€',
+    period: '/mes',
+    features: [
+      'Funnel completo multi-página',
+      'Agente IA avanzado con pipelines de ventas',
+      'Portal con CRM, pipelines y reportes custom',
+      'Integración Meta & Google Ads',
+      'Dashboard de métricas en tiempo real',
+      'Soporte dedicado WhatsApp',
+    ],
+    cta: 'Empezar ahora',
+    ctaHref: '#contact',
+  },
+  {
+    name: 'Enterprise',
+    setup: 'Para marcas escalando a +100k/mes',
+    priceCustom: 'Custom Quote',
+    features: [
+      'Infraestructura Shopify Plus',
+      'Portal white-label con tu marca',
+      'Equipo dedicado de ingeniería',
+      'Integraciones ERP / 3PL',
+      'SLA garantizado 99.9%',
+      'Account Manager exclusivo',
+    ],
+    cta: 'Contactar',
+    ctaHref: '#contact',
+    enterprise: true,
+  },
+];
 
 export const Pricing = () => {
-    const factors = [
-        {
-            icon: Database,
-            title: 'Volumen de Datos',
-            question: '¿Cuántos pedidos o interacciones maneja al mes?',
-            description: 'No es lo mismo procesar 100 pedidos que 10.000. La infraestructura escala según tu carga de trabajo.',
-            examples: ['100 vs 10,000 interacciones', 'Almacenamiento histórico', 'Frecuencia de sincronización'],
-        },
-        {
-            icon: GitBranch,
-            title: 'Complejidad del Flujo',
-            question: '¿Necesita lógica avanzada o simple transferencia?',
-            description: 'Desde automatizaciones lineales hasta agentes autónomos con toma de decisiones compleja y validaciones.',
-            examples: ['Validaciones condicionales', 'Integración de múltiples APIs', 'Lógica de negocio personalizada'],
-        },
-        {
-            icon: TrendingUp,
-            title: 'Retorno de Inversión (ROI)',
-            question: '¿Qué beneficio genera la solución?',
-            description: 'Diseñamos soluciones que se pagan solas. El coste es una fracción del valor que generamos para tu negocio.',
-            examples: ['Ahorro de horas/hombre', 'Incremento de ventas', 'Reducción de errores'],
-        },
-    ];
+  return (
+    <section id="pricing" className="py-32 bg-background relative overflow-hidden">
+      <div className="absolute top-0 left-0 w-full h-px bg-gradient-to-r from-transparent via-border to-transparent" />
 
-    return (
-        <section id="pricing" className="py-32 bg-background relative overflow-hidden">
-            {/* Background decoration */}
-            <div className="absolute top-0 left-0 w-full h-px bg-gradient-to-r from-transparent via-border to-transparent" />
+      <div className="container px-6 mx-auto">
+        <div className="max-w-4xl mx-auto text-center mb-16">
+          <h2 className="text-4xl md:text-5xl font-semibold tracking-tight mb-6">
+            Planes y <span className="text-primary">precios.</span>
+          </h2>
+          <p className="text-xl text-muted-foreground text-balance">
+            Elige el plan que se adapta a la etapa de tu negocio. Sin permanencia.
+          </p>
+        </div>
 
-            <div className="container px-6 mx-auto">
-                <div className="max-w-4xl mx-auto text-center mb-20">
-                    <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-secondary text-secondary-foreground text-sm font-medium mb-6">
-                        <Scissors size={16} />
-                        <span>Trajes a Medida</span>
+        <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-4 gap-6 items-start">
+          {plans.map((plan, index) => (
+            <div
+              key={index}
+              className={`relative rounded-3xl p-8 flex flex-col h-full transition-all duration-300 hover:-translate-y-1 ${
+                plan.featured
+                  ? 'bg-primary/5 border-2 border-primary shadow-xl shadow-primary/10'
+                  : plan.enterprise
+                  ? 'bg-secondary/20 border border-border/50'
+                  : 'bg-secondary/20 border border-border/50 hover:border-primary/20'
+              }`}
+            >
+              {plan.badge && (
+                <div className="absolute -top-3.5 left-1/2 -translate-x-1/2">
+                  <span className="bg-primary text-white text-xs font-bold px-4 py-1 rounded-full">
+                    {plan.badge}
+                  </span>
+                </div>
+              )}
+
+              <div className="mb-6">
+                <h3 className="text-xl font-bold mb-3">{plan.name}</h3>
+                <p className="text-xs text-muted-foreground mb-4">{plan.setup}</p>
+
+                {plan.priceCustom ? (
+                  <div className="text-3xl font-bold text-foreground">{plan.priceCustom}</div>
+                ) : (
+                  <div>
+                    {plan.priceOld && (
+                      <span className="text-sm text-muted-foreground line-through mr-2">
+                        {plan.priceOld}
+                      </span>
+                    )}
+                    <div className="flex items-end gap-1">
+                      <span className={`text-4xl font-bold ${plan.featured ? 'text-primary' : 'text-foreground'}`}>
+                        {plan.priceNow}
+                      </span>
+                      {plan.period && (
+                        <span className="text-muted-foreground text-sm mb-1">{plan.period}</span>
+                      )}
                     </div>
-                    <h2 className="text-4xl md:text-5xl font-semibold tracking-tight mb-6">
-                        Inversión adaptada a tu realidad.
-                    </h2>
-                    <p className="text-xl text-muted-foreground text-balance">
-                        Nuestras soluciones son como un traje de sastrería: el precio exacto depende de la complejidad de la confección y la calidad de los materiales.
-                    </p>
-                </div>
+                  </div>
+                )}
+              </div>
 
-                <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-16">
-                    {factors.map((factor, index) => {
-                        const Icon = factor.icon;
-                        return (
-                            <div key={index} className="bg-secondary/20 rounded-3xl p-8 border border-border/50 hover:border-primary/20 transition-colors">
-                                <div className="w-12 h-12 rounded-2xl bg-background flex items-center justify-center text-primary mb-6 shadow-sm">
-                                    <Icon size={24} />
-                                </div>
-                                <h3 className="text-xl font-bold mb-2">{factor.title}</h3>
-                                <p className="text-sm font-medium text-foreground mb-4">{factor.question}</p>
-                                <p className="text-muted-foreground text-sm leading-relaxed mb-6">
-                                    {factor.description}
-                                </p>
-                                <ul className="space-y-2">
-                                    {factor.examples.map((example, i) => (
-                                        <li key={i} className="flex items-center gap-2 text-xs text-muted-foreground">
-                                            <div className="w-1 h-1 rounded-full bg-primary" />
-                                            {example}
-                                        </li>
-                                    ))}
-                                </ul>
-                            </div>
-                        );
-                    })}
-                </div>
+              <ul className="space-y-3 mb-8 flex-grow">
+                {plan.features.map((feature, i) => (
+                  <li key={i} className="flex items-start gap-2 text-sm text-muted-foreground">
+                    <Check
+                      size={16}
+                      className={`shrink-0 mt-0.5 ${plan.featured ? 'text-primary' : 'text-foreground'}`}
+                    />
+                    {feature}
+                  </li>
+                ))}
+              </ul>
 
-                <div className="bg-primary/5 rounded-[2.5rem] p-8 md:p-12 text-center border border-primary/10 max-w-3xl mx-auto">
-                    <h3 className="text-2xl font-bold mb-4">¿Quieres un presupuesto exacto?</h3>
-                    <p className="text-muted-foreground mb-8 max-w-lg mx-auto">
-                        Analicemos tu caso en una sesión de consultoría gratuita. Te daremos una hoja de ruta y un presupuesto cerrado sin compromiso.
-                    </p>
-                    <a
-                        href="#contact"
-                        className="inline-flex items-center gap-2 px-8 py-4 bg-primary text-primary-foreground rounded-full text-lg font-medium hover:bg-primary/90 transition-all hover:scale-105 shadow-lg shadow-primary/20"
-                    >
-                        Solicitar Presupuesto Personalizado
-                        <ArrowRight size={20} />
-                    </a>
-                </div>
+              <a
+                href={plan.ctaHref}
+                className={`inline-flex items-center justify-center gap-2 w-full py-3 rounded-2xl font-medium text-sm transition-all hover:scale-[1.02] active:scale-[0.98] ${
+                  plan.featured
+                    ? 'bg-primary text-white hover:bg-primary/90 shadow-lg shadow-primary/25'
+                    : plan.enterprise
+                    ? 'border border-border text-foreground hover:border-primary/30 hover:text-primary'
+                    : 'bg-foreground text-background hover:bg-foreground/90'
+                }`}
+              >
+                {plan.cta}
+                <ArrowRight size={16} />
+              </a>
             </div>
-        </section>
-    );
+          ))}
+        </div>
+      </div>
+    </section>
+  );
 };

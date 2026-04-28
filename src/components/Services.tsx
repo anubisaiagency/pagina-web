@@ -1,4 +1,4 @@
-import { Bot, Workflow, TrendingUp, MessageSquare, Calendar, BarChart3 } from 'lucide-react';
+import { ShoppingBag, LayoutDashboard, Bot } from 'lucide-react';
 import { useEffect, useRef, useState } from 'react';
 
 export const Services = () => {
@@ -9,11 +9,10 @@ export const Services = () => {
     const observer = new IntersectionObserver(
       ([entry]) => {
         if (entry.isIntersecting) {
-          const cards = [0, 1, 2, 3, 4, 5];
-          cards.forEach((index) => {
+          [0, 1, 2].forEach((index) => {
             setTimeout(() => {
               setVisibleCards((prev) => [...prev, index]);
-            }, index * 100);
+            }, index * 150);
           });
         }
       },
@@ -29,34 +28,19 @@ export const Services = () => {
 
   const services = [
     {
+      icon: ShoppingBag,
+      title: 'Landing Pages de alta conversión',
+      description: 'Diseñamos y desarrollamos la página de tu producto optimizada para convertir. Velocidad extrema, copy persuasivo y un checkout sin fricciones que guía al cliente hasta la compra.',
+    },
+    {
+      icon: LayoutDashboard,
+      title: 'Tu portal de control exclusivo',
+      description: 'Tendrás acceso a un panel privado donde puedes ver en tiempo real tus ventas, tus leads, el estado de tus campañas y controlar tu agente de IA — todo desde un solo lugar.',
+    },
+    {
       icon: Bot,
-      title: 'Agentes de IA',
-      description: 'Asistentes virtuales 24/7 que gestionan consultas, reservas y ventas automáticamente.',
-    },
-    {
-      icon: Workflow,
-      title: 'Automatización',
-      description: 'Conectamos tus herramientas para crear workflows inteligentes que eliminan tareas repetitivas.',
-    },
-    {
-      icon: TrendingUp,
-      title: 'Marketing IA',
-      description: 'Campañas personalizadas impulsadas por machine learning que maximizan tu ROI.',
-    },
-    {
-      icon: MessageSquare,
-      title: 'Chatbots',
-      description: 'Conversaciones naturales que convierten visitantes en clientes en tu web y redes.',
-    },
-    {
-      icon: Calendar,
-      title: 'Gestión de Citas',
-      description: 'Sistema de reservas automatizado que reduce no-shows y optimiza tu calendario.',
-    },
-    {
-      icon: BarChart3,
-      title: 'Analytics',
-      description: 'Insights accionables basados en IA para decisiones estratégicas informadas.',
+      title: 'Agente de IA 24/7',
+      description: 'Un agente entrenado con tu catálogo y tu marca que responde dudas, recupera carritos abandonados y cierra ventas de forma autónoma, sin que tú tengas que mover un dedo.',
     },
   ];
 
@@ -65,14 +49,14 @@ export const Services = () => {
       <div className="container px-6 mx-auto">
         <div className="mb-20 max-w-2xl">
           <h2 className="text-4xl md:text-5xl font-semibold tracking-tight mb-6">
-            Servicios diseñados para el futuro.
+            Lo que construimos.
           </h2>
           <p className="text-xl text-muted-foreground">
-            Soluciones de inteligencia artificial que se integran perfectamente en tu negocio.
+            Tres pilares para que tu tienda convierta, retenga y escale sin depender de ti.
           </p>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-12">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-12">
           {services.map((service, index) => {
             const Icon = service.icon;
             const isVisible = visibleCards.includes(index);
