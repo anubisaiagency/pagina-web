@@ -1,4 +1,5 @@
 import { Mail, Phone, MapPin } from 'lucide-react';
+import { Link } from 'react-router-dom';
 
 export const Footer = () => {
   const currentYear = new Date().getFullYear();
@@ -12,9 +13,9 @@ export const Footer = () => {
       { label: 'Contacto', href: '#contact' },
     ],
     legal: [
-      { label: 'Términos', href: 'https://anubisaiagency.com/terminos' },
-      { label: 'Privacidad', href: 'https://anubisaiagency.com/privacidad' },
-      { label: 'Cookies', href: 'https://anubisaiagency.com/cookies' },
+      { label: 'Términos', href: '/terminos' },
+      { label: 'Privacidad', href: '/privacidad' },
+      { label: 'Cookies', href: '/cookies' },
     ],
   };
 
@@ -49,9 +50,9 @@ export const Footer = () => {
             <ul className="space-y-3 text-sm text-muted-foreground">
               {links.legal.map((link) => (
                 <li key={link.label}>
-                  <a href={link.href} target="_blank" rel="noopener" className="hover:text-foreground transition-colors">
+                  <Link to={link.href} className="hover:text-foreground transition-colors">
                     {link.label}
-                  </a>
+                  </Link>
                 </li>
               ))}
             </ul>
