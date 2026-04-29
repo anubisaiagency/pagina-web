@@ -51,9 +51,9 @@ export const Header = () => {
       <div className="container mx-auto px-6 flex items-center justify-between">
         <a href="/" onClick={handleLogoClick} className="flex items-center gap-2 group">
           <img
-            src="/logo.png"
+            src={isScrolled ? '/logo.png' : '/logo-invertido.png'}
             alt="Anubis AI Logo"
-            className="h-10 w-auto transition-transform duration-300 group-hover:scale-105"
+            className="h-10 w-auto transition-all duration-500 group-hover:scale-105"
           />
           <span className={`text-xl font-semibold tracking-tight hidden sm:block transition-colors duration-300 ${isScrolled ? '' : 'text-white'}`}>
             Anubis<span className="text-primary">AI</span>

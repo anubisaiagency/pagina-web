@@ -113,7 +113,7 @@ export const Sectors = () => {
       <div className="container px-6 mx-auto">
         <div className="text-center mb-24">
           <h2 className="text-4xl md:text-5xl font-semibold tracking-tight mb-6">
-            Nichos en los que trabajamos.
+            Nichos en los que <span className="bg-gradient-to-r from-blue-400 to-blue-600 bg-clip-text text-transparent">trabajamos.</span>
           </h2>
           <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
             Experiencia real en los verticales de e-commerce que más venden.

@@ -49,7 +49,7 @@ export const Services = () => {
       <div className="container px-6 mx-auto">
         <div className="mb-20 max-w-2xl">
           <h2 className="text-4xl md:text-5xl font-semibold tracking-tight mb-6">
-            Lo que construimos.
+            Lo que <span className="bg-gradient-to-r from-blue-400 to-blue-600 bg-clip-text text-transparent">construimos.</span>
           </h2>
           <p className="text-xl text-muted-foreground">
             Tres pilares para que tu tienda convierta, retenga y escale sin depender de ti.

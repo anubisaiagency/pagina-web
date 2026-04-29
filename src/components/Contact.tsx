@@ -138,7 +138,7 @@ export const Contact = () => {
         {/* Section header */}
         <div className="max-w-4xl mx-auto text-center mb-16">
           <h2 className="text-4xl md:text-5xl font-semibold tracking-tight mb-6">
-            ¿Listo para que tu tienda convierta?
+            ¿Listo para que tu tienda <span className="bg-gradient-to-r from-blue-400 to-blue-600 bg-clip-text text-transparent">convierta?</span>
           </h2>
           <p className="text-xl text-muted-foreground">
             Cuéntanos tu proyecto o reserva una demo. Primera consulta gratuita y sin compromiso.

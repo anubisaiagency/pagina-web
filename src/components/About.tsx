@@ -12,7 +12,7 @@ export const About = () => {
       <div className="container px-6 mx-auto">
         <div className="max-w-4xl mx-auto text-center mb-20">
           <h2 className="text-4xl md:text-5xl font-semibold tracking-tight mb-8">
-            Quiénes somos
+            Quiénes <span className="bg-gradient-to-r from-blue-400 to-blue-600 bg-clip-text text-transparent">somos</span>
           </h2>
           <p className="text-xl md:text-2xl text-muted-foreground leading-relaxed text-balance mb-12">
             Somos ingenieros web especializados en construir tiendas que convierten.

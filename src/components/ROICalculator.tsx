@@ -46,7 +46,7 @@ export const ROICalculator = () => {
             </div>
 
             <h2 className="text-4xl font-bold tracking-tight mb-5">
-              ¿Cuánto revenue estás dejando sobre la mesa?
+              ¿Cuánto <span className="bg-gradient-to-r from-blue-400 to-blue-600 bg-clip-text text-transparent">revenue</span> estás dejando sobre la mesa?
             </h2>
             <p className="text-xl text-muted-foreground mb-8">
               Introduce los datos de tu tienda y calcula cuánto podrías ganar con una landing de alta conversión.

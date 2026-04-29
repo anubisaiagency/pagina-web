@@ -33,7 +33,7 @@ export const Process = () => {
       <div className="container px-6 mx-auto relative z-10">
         <div className="mb-24 text-center">
           <h2 className="text-4xl md:text-5xl font-semibold tracking-tight mb-6">
-            El Protocolo Anubis.
+            El Protocolo <span className="bg-gradient-to-r from-blue-400 to-blue-600 bg-clip-text text-transparent">Anubis.</span>
           </h2>
           <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
             4 fases para lanzar una tienda que convierte desde el día 1.
