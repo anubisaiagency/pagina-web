@@ -55,7 +55,7 @@ export const Header = () => {
             alt="Anubis AI Logo"
             className="h-10 w-auto transition-transform duration-300 group-hover:scale-105"
           />
-          <span className="text-xl font-semibold tracking-tight hidden sm:block">
+          <span className={`text-xl font-semibold tracking-tight hidden sm:block transition-colors duration-300 ${isScrolled ? '' : 'text-white'}`}>
             Anubis<span className="text-primary">AI</span>
           </span>
         </a>
@@ -67,7 +67,11 @@ export const Header = () => {
               key={link.name}
               href={isHome ? `#${link.anchor}` : `/#${link.anchor}`}
               onClick={(e) => handleNavClick(e, link.anchor)}
-              className="text-sm font-medium text-muted-foreground hover:text-foreground transition-colors relative after:content-[''] after:absolute after:left-0 after:bottom-[-4px] after:w-0 after:h-[2px] after:bg-primary after:transition-all after:duration-300 hover:after:w-full"
+              className={`text-sm font-medium transition-colors relative after:content-[''] after:absolute after:left-0 after:bottom-[-4px] after:w-0 after:h-[2px] after:bg-primary after:transition-all after:duration-300 hover:after:w-full ${
+                isScrolled
+                  ? 'text-muted-foreground hover:text-foreground'
+                  : 'text-white/80 hover:text-white'
+              }`}
             >
               {link.name}
             </a>
@@ -76,7 +80,11 @@ export const Header = () => {
             href="TU_ENLACE_GHL_AQUI"
             target="_blank"
             rel="noopener"
-            className="px-5 py-2.5 bg-foreground text-background rounded-full text-sm font-medium hover:bg-foreground/90 transition-all hover:scale-105 active:scale-95"
+            className={`px-5 py-2.5 rounded-full text-sm font-medium transition-all hover:scale-105 active:scale-95 ${
+              isScrolled
+                ? 'bg-foreground text-background hover:bg-foreground/90'
+                : 'bg-white text-black hover:bg-white/90'
+            }`}
           >
             Acceso Clientes
           </a>
@@ -84,7 +92,7 @@ export const Header = () => {
 
         {/* Mobile Menu Button */}
         <button
-          className="md:hidden p-2 text-foreground"
+          className={`md:hidden p-2 transition-colors duration-300 ${isScrolled ? 'text-foreground' : 'text-white'}`}
           onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
           aria-label="Toggle menu"
         >
