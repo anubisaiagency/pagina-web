@@ -1,4 +1,4 @@
-import { Check, ArrowRight, Store } from 'lucide-react';
+import { Check, ArrowRight, Store, Clock } from 'lucide-react';
 
 interface Plan {
   name: string;
@@ -14,6 +14,7 @@ interface Plan {
   featured?: boolean;
   badge?: string;
   enterprise?: boolean;
+  launch?: boolean;
 }
 
 const plans: Plan[] = [
@@ -24,6 +25,7 @@ const plans: Plan[] = [
     priceOld: '67.99€',
     priceNow: '37.99€',
     period: '/mes',
+    launch: true,
     features: [
       'Landing page de producto optimizada',
       'Agente IA de soporte básico',
@@ -40,6 +42,7 @@ const plans: Plan[] = [
     priceOld: '97€',
     priceNow: '67.99€',
     period: '/mes',
+    launch: true,
     features: [
       'Landing page premium + páginas de colección',
       'Agente IA con recuperación de carritos',
@@ -57,8 +60,10 @@ const plans: Plan[] = [
     name: 'Titan',
     setup: '500€ setup único',
     stores: 'Tiendas ilimitadas',
+    priceOld: '297€',
     priceNow: '147€',
     period: '/mes',
+    launch: true,
     features: [
       'Funnel completo multi-página',
       'Agente IA avanzado con pipelines de ventas',
@@ -99,9 +104,14 @@ export const Pricing = () => {
           <h2 className="text-4xl md:text-5xl font-semibold tracking-tight mb-6">
             Planes y <span className="text-primary">precios.</span>
           </h2>
-          <p className="text-xl text-muted-foreground text-balance">
+          <p className="text-xl text-muted-foreground text-balance mb-6">
             Elige el plan que se adapta a la etapa de tu negocio. Sin permanencia.
           </p>
+          {/* Launch banner */}
+          <div className="inline-flex items-center gap-2 px-5 py-2.5 bg-amber-500/10 border border-amber-400/30 rounded-full text-sm font-medium text-amber-700 dark:text-amber-400">
+            <Clock size={14} className="shrink-0" />
+            Precios de lanzamiento para primeros clientes — rebajados de por vida mientras dure esta oferta
+          </div>
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-4 gap-6 items-start">
@@ -145,6 +155,12 @@ export const Pricing = () => {
                         <span className="text-muted-foreground text-sm mb-1">{plan.period}</span>
                       )}
                     </div>
+                    {plan.launch && (
+                      <div className="mt-2 inline-flex items-center gap-1 px-2.5 py-1 bg-amber-500/10 border border-amber-400/25 rounded-full">
+                        <Clock size={11} className="text-amber-600 dark:text-amber-400 shrink-0" />
+                        <span className="text-xs font-semibold text-amber-700 dark:text-amber-400">Precio de lanzamiento</span>
+                      </div>
+                    )}
                   </div>
                 )}
               </div>
