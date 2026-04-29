@@ -44,7 +44,7 @@ export const Process = () => {
           {/* Left Column: Mascot & Orbiting Symbols */}
           <div className="relative h-[500px] flex items-center justify-center">
             {/* Central Mascot */}
-            <div className="relative z-20 w-64 h-64 md:w-80 md:h-80 animate-float">
+            <div className="relative z-20 w-64 h-64 md:w-80 md:h-80 animate-hero-float">
               <img
                 src="/anubis.png"
                 alt="Anubis Mascot"
