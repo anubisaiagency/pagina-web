@@ -1,5 +1,5 @@
 import { ArrowRight, CheckCircle2 } from 'lucide-react';
-import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogTrigger, DialogDescription } from '@/components/ui/dialog';
+import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogTrigger, DialogDescription, DialogClose } from '@/components/ui/dialog';
 import { Button } from '@/components/ui/button';
 
 const cases = [
@@ -101,6 +101,12 @@ const cases = [
   },
 ];
 
+const scrollToContact = () => {
+  setTimeout(() => {
+    document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' });
+  }, 200);
+};
+
 export const Sectors = () => {
   return (
     <section id="sectors" className="py-32 bg-secondary/30">
@@ -139,20 +145,25 @@ export const Sectors = () => {
                 </DialogTrigger>
               </div>
 
-              <DialogContent className="sm:max-w-[600px] rounded-3xl p-0 overflow-hidden">
-                <div className="bg-primary/5 p-8 border-b border-border">
-                  <div className="flex items-center gap-4 mb-4">
-                    <div className="text-5xl">{item.emoji}</div>
-                    <div>
-                      <DialogTitle className="text-2xl font-bold">{item.client}</DialogTitle>
-                      <DialogDescription className="text-base font-medium text-primary">
-                        {item.result}
-                      </DialogDescription>
+              {/* max-h + flex-col make it scrollable on mobile */}
+              <DialogContent className="sm:max-w-[600px] rounded-3xl p-0 overflow-hidden max-h-[90dvh] flex flex-col">
+                {/* Fixed header — doesn't scroll */}
+                <div className="bg-primary/5 p-6 sm:p-8 border-b border-border shrink-0">
+                  <DialogHeader>
+                    <div className="flex items-center gap-4">
+                      <div className="text-5xl">{item.emoji}</div>
+                      <div>
+                        <DialogTitle className="text-2xl font-bold">{item.client}</DialogTitle>
+                        <DialogDescription className="text-base font-medium text-primary">
+                          {item.result}
+                        </DialogDescription>
+                      </div>
                     </div>
-                  </div>
+                  </DialogHeader>
                 </div>
 
-                <div className="p-8 space-y-6">
+                {/* Scrollable body */}
+                <div className="p-6 sm:p-8 space-y-6 overflow-y-auto">
                   <div>
                     <h4 className="text-sm font-bold uppercase tracking-wider text-muted-foreground mb-2">El Desafío</h4>
                     <p className="text-foreground leading-relaxed">{item.details.challenge}</p>
@@ -176,9 +187,16 @@ export const Sectors = () => {
                   </div>
 
                   <div className="pt-4">
-                    <Button className="w-full rounded-full" size="lg" asChild>
-                      <a href="#contact">Quiero resultados similares</a>
-                    </Button>
+                    {/* DialogClose closes the modal; onClick smooth-scrolls after animation */}
+                    <DialogClose asChild>
+                      <Button
+                        className="w-full rounded-full"
+                        size="lg"
+                        onClick={scrollToContact}
+                      >
+                        Quiero resultados similares
+                      </Button>
+                    </DialogClose>
                   </div>
                 </div>
               </DialogContent>

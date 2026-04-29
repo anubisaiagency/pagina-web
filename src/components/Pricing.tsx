@@ -1,8 +1,9 @@
-import { Check, ArrowRight } from 'lucide-react';
+import { Check, ArrowRight, Store } from 'lucide-react';
 
 interface Plan {
   name: string;
   setup: string;
+  stores: string;
   priceOld?: string;
   priceNow?: string;
   priceCustom?: string;
@@ -19,6 +20,7 @@ const plans: Plan[] = [
   {
     name: 'Junior',
     setup: '150€ setup único',
+    stores: '1 tienda/mes',
     priceOld: '67.99€',
     priceNow: '37.99€',
     period: '/mes',
@@ -34,6 +36,7 @@ const plans: Plan[] = [
   {
     name: 'Advanced',
     setup: '250€ setup único',
+    stores: '10 tiendas/mes',
     priceOld: '97€',
     priceNow: '67.99€',
     period: '/mes',
@@ -53,6 +56,7 @@ const plans: Plan[] = [
   {
     name: 'Titan',
     setup: '500€ setup único',
+    stores: 'Tiendas ilimitadas',
     priceNow: '147€',
     period: '/mes',
     features: [
@@ -69,6 +73,7 @@ const plans: Plan[] = [
   {
     name: 'Enterprise',
     setup: 'Para marcas escalando a +100k/mes',
+    stores: 'Volumen personalizado',
     priceCustom: 'Custom Quote',
     features: [
       'Infraestructura Shopify Plus',
@@ -119,7 +124,7 @@ export const Pricing = () => {
                 </div>
               )}
 
-              <div className="mb-6">
+              <div className="mb-5">
                 <h3 className="text-xl font-bold mb-3">{plan.name}</h3>
                 <p className="text-xs text-muted-foreground mb-4">{plan.setup}</p>
 
@@ -142,6 +147,19 @@ export const Pricing = () => {
                     </div>
                   </div>
                 )}
+              </div>
+
+              {/* Tiendas por mes — highlighted */}
+              <div className={`flex items-center gap-2 px-3 py-2.5 rounded-xl mb-6 ${
+                plan.featured ? 'bg-primary/10' : 'bg-foreground/5'
+              }`}>
+                <Store
+                  size={15}
+                  className={`shrink-0 ${plan.featured ? 'text-primary' : 'text-foreground/60'}`}
+                />
+                <span className={`text-sm font-semibold ${plan.featured ? 'text-primary' : 'text-foreground'}`}>
+                  {plan.stores}
+                </span>
               </div>
 
               <ul className="space-y-3 mb-8 flex-grow">
