@@ -2,6 +2,7 @@ import { Header } from '@/components/Header';
 import { Hero } from '@/components/Hero';
 import { About } from '@/components/About';
 import { Services } from '@/components/Services';
+import { FoundingMembers } from '@/components/FoundingMembers';
 import { Sectors } from '@/components/Sectors';
 import { Process } from '@/components/Process';
 import { Pricing } from '@/components/Pricing';
@@ -30,10 +31,11 @@ const Index = () => {
         <Hero />
         <About />
         <Services />
+        <FoundingMembers />
+        <Pricing />
         <Sectors />
         <ROICalculator />
         <Process />
-        <Pricing />
         <Contact />
       </main>
       <Footer />

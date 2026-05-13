@@ -26,6 +26,7 @@ export const Header = () => {
 
   const navLinks = [
     { name: 'Servicios', anchor: 'services' },
+    { name: 'Founding',  anchor: 'founding' },
     { name: 'Precios',   anchor: 'pricing' },
     { name: 'Sectores',  anchor: 'sectors' },
     { name: 'Proceso',   anchor: 'process' },
@@ -77,7 +78,7 @@ export const Header = () => {
             </a>
           ))}
           <a
-            href="TU_ENLACE_GHL_AQUI"
+            href="https://app.gohighlevel.com/"
             target="_blank"
             rel="noopener"
             className={`px-5 py-2.5 rounded-full text-sm font-medium transition-all hover:scale-105 active:scale-95 ${
@@ -115,7 +116,7 @@ export const Header = () => {
               </a>
             ))}
             <a
-              href="TU_ENLACE_GHL_AQUI"
+              href="https://app.gohighlevel.com/"
               target="_blank"
               rel="noopener"
               className="px-4 py-3 bg-foreground text-background rounded-xl text-center font-medium hover:bg-foreground/90 transition-colors"
